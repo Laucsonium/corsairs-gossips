@@ -1,0 +1,36 @@
+<h2> INSCRIPTION </h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div>
+    <%= f.label :email, 'Donne ton mail Corsair !'%><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div>
+    <%= f.label :password, "Choisis un mot de passe, choisis bien ..."%>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> charactères minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation, 'Le mot de passe ?' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div>
+    <%= f.label :user_name, 'Ton nom de corsair' %><br />
+    <%= f.text_field :user_name %>
+  </div>
+
+
+  <div>
+    <%= f.submit "Sign up" %>
+  </div>
+
+<% end %>
+
+<%= render "devise/shared/links" %>
